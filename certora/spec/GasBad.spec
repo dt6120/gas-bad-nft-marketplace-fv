@@ -1,8 +1,13 @@
-persistent ghost mathint listingUpdateCounter {
+methods {
+    function _.safeTransferFrom(address, address, uint256) external => DISPATCHER(true);
+    function _.onERC721Received(address, address, uint256, bytes) external => ALWAYS(1);
+}
+
+ghost mathint listingUpdateCounter {
     init_state axiom listingUpdateCounter == 0;
 }
 
-persistent ghost mathint log4Counter {
+ghost mathint log4Counter {
     init_state axiom log4Counter == 0;
 }
 
