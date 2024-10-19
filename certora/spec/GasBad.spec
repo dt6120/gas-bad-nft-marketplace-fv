@@ -1,6 +1,10 @@
-ghost mathint listingUpdateCounter;
+persistent ghost mathint listingUpdateCounter {
+    init_state axiom listingUpdateCounter == 0;
+}
 
-ghost mathint log4Counter;
+persistent ghost mathint log4Counter {
+    init_state axiom log4Counter == 0;
+}
 
 hook Sstore s_listings[KEY address nftAddress][KEY uint256 tokenId].price uint256 price {
     listingUpdateCounter = listingUpdateCounter + 1;
